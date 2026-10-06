@@ -1,0 +1,27 @@
+# Cấu hình riêng của từng người dùng — KHÔNG BAO GIỜ commit
+config.env
+.env
+*.env.local
+
+# File làm việc sinh ra khi chạy (chứa dữ liệu khách — KHÔNG BAO GIỜ commit)
+worklist.json
+worklist-*.json
+zalo.json
+zalo-status.json
+results.json
+results-*.json
+google-vn.json
+google-results.json
+google-queries.txt
+manh-moi-email.json
+ra-soat-rac-oan.json
+ra-soat-zalo-hong.json
+.alert-stamp.json
+enrich.lock
+enrich-watcher.pid
+logs/
+output/
+
+# Node
+node_modules/
+npm-debug.log*
