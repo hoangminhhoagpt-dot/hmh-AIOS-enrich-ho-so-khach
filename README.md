@@ -52,16 +52,40 @@ gần như vô dụng (khách toàn dùng gmail).
 
 | Thư mục | Nội dung |
 |---|---|
-| `skill/hmh-AIOS-enrich-ho-so-khach/` | Skill chính — chạy trên máy bạn (cần Claude Code + Zalo đăng nhập) |
+| `plugins/hmh-aios-enrich-ho-so-khach/` | Plugin Claude Code chứa skill chính — chạy trên máy bạn (cần Claude Code + Zalo đăng nhập) |
 | `cloud/` + `.github/workflows/` | Bản chạy trên GitHub Actions khi máy tắt — chỉ lọc rác, không research |
 | `gateway/` | Đoạn code thêm route HTTP nếu bạn có sẵn một gateway Node |
 | `HUONG-DAN-KHACH.md` | Hướng dẫn cài từ đầu đến cuối |
 
 ## Cài nhanh
 
+### Cách 1 — cài thẳng trong Claude Code (khuyên dùng)
+
+Mở Claude Code ở thư mục làm việc của bạn, gõ hai dòng này:
+
+```
+/plugin marketplace add hoangminhhoagpt-dot/hmh-AIOS-enrich-ho-so-khach
+/plugin install hmh-aios-enrich-ho-so-khach@mentor-camp
+```
+
+Hoặc chạy ngoài terminal:
+
+```bash
+claude plugin marketplace add hoangminhhoagpt-dot/hmh-AIOS-enrich-ho-so-khach
+claude plugin install hmh-aios-enrich-ho-so-khach@mentor-camp
+```
+
+Xong là skill nằm sẵn trong Claude Code. Mở một phiên và nói *"làm giàu hồ sơ khách"* là Claude
+tự mở skill. Lần đầu, bảo Claude **"chỉ cho tôi thư mục scripts của skill enrich"** rồi làm tiếp
+phần **Điền cấu hình** bên dưới trong thư mục đó.
+
+Cập nhật về sau: `claude plugin update hmh-aios-enrich-ho-so-khach`.
+
+### Cách 2 — chép tay (nếu không dùng plugin)
+
 ```bash
 # 1. Chép skill vào bộ não của bạn
-cp -r skill/hmh-AIOS-enrich-ho-so-khach <thư-mục-làm-việc>/.claude/skills/
+cp -r plugins/hmh-aios-enrich-ho-so-khach/skills/hmh-AIOS-enrich-ho-so-khach <thư-mục-làm-việc>/.claude/skills/
 
 # 2. Điền cấu hình
 cd <thư-mục-làm-việc>/.claude/skills/hmh-AIOS-enrich-ho-so-khach/scripts
@@ -73,6 +97,14 @@ node 00-ensure-fields.mjs
 # 4. Chạy thử một lượt
 node enrich-watcher.mjs --once
 ```
+
+> **Điền cấu hình** (cả hai cách đều cần): trong thư mục `scripts/` của skill, copy
+> `config.env.example` thành `config.env` rồi điền `BASE_TOKEN`, `TABLE_ID`, `SALE_WEBHOOK`,
+> `BASE_URL`. File `config.env` nằm trong `.gitignore`, không bao giờ bị đẩy lên git.
+>
+> Nếu cài bằng **Cách 1** thì `config.env` nằm trong thư mục plugin — **cập nhật plugin sẽ ghi đè
+> thư mục đó**, nên sau mỗi lần `plugin update` hãy chép lại `config.env`. Ai ngại chuyện này thì
+> dùng Cách 2.
 
 Chi tiết từng bước, kể cả cách lấy Base token và webhook nhóm: xem [HUONG-DAN-KHACH.md](HUONG-DAN-KHACH.md).
 

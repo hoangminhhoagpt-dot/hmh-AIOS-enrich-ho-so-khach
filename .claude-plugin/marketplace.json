@@ -1,0 +1,14 @@
+{
+  "name": "mentor-camp",
+  "description": "Bộ công cụ Mentor Camp cho Claude Code — cài thẳng vào máy học viên",
+  "owner": {
+    "name": "Mentor Camp"
+  },
+  "plugins": [
+    {
+      "name": "hmh-aios-enrich-ho-so-khach",
+      "source": "./plugins/hmh-aios-enrich-ho-so-khach",
+      "description": "Trợ lý dựng hồ sơ khách hàng từ sale page: lọc lead rác, tra Zalo và mạng, ghi hồ sơ vào Lark Base, đẩy thẻ vào nhóm sale."
+    }
+  ]
+}

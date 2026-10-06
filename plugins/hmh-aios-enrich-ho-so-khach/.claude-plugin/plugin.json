@@ -1,0 +1,18 @@
+{
+  "name": "hmh-aios-enrich-ho-so-khach",
+  "displayName": "Trợ lý dựng hồ sơ khách hàng",
+  "version": "1.0.0",
+  "description": "Khách điền form trên sale page → máy tự tra cứu người đó là ai → ghi hồ sơ vào Lark Base → đẩy thẻ vào nhóm sale. Lọc lead rác trước, chỉ gọi AI khi thật sự có lead mới.",
+  "author": {
+    "name": "Mentor Camp"
+  },
+  "repository": "https://github.com/hoangminhhoagpt-dot/hmh-AIOS-enrich-ho-so-khach",
+  "keywords": [
+    "lark-base",
+    "lead",
+    "sale",
+    "enrich",
+    "zalo",
+    "crm"
+  ]
+}

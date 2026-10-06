@@ -52,9 +52,20 @@ Thấy tin trong nhóm là đúng.
 
 ## Bước 4 — Cài skill
 
+**Cách nhanh nhất — cài thẳng trong Claude Code.** Mở Claude Code ở thư mục làm việc, gõ:
+
+```
+/plugin marketplace add hoangminhhoagpt-dot/hmh-AIOS-enrich-ho-so-khach
+/plugin install hmh-aios-enrich-ho-so-khach@mentor-camp
+```
+
+Rồi bảo Claude **"chỉ cho tôi thư mục scripts của skill enrich"** để biết chỗ đặt `config.env`.
+
+**Cách chép tay** (nếu không muốn dùng plugin):
+
 ```bash
 # chép vào bộ não của bạn
-cp -r skill/hmh-AIOS-enrich-ho-so-khach <thư-mục-làm-việc>/.claude/skills/
+cp -r plugins/hmh-aios-enrich-ho-so-khach/skills/hmh-AIOS-enrich-ho-so-khach <thư-mục-làm-việc>/.claude/skills/
 
 cd <thư-mục-làm-việc>/.claude/skills/hmh-AIOS-enrich-ho-so-khach/scripts
 cp config.env.example config.env
